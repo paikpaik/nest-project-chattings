@@ -14,6 +14,7 @@ socket.on('new_chat', (data) => {
   const { chat, username } = data;
   drawNewChat(`${username}: ${chat}`);
 });
+socket.on('disconnect_user', (username) => drawNewChat(`${username}: bye...`));
 
 //* event callback functions
 const handleSubmit = (event) => {
@@ -22,7 +23,7 @@ const handleSubmit = (event) => {
   if (inputValue !== '') {
     socket.emit('submit_chat', inputValue);
     // 브라우저에 나타내기
-    drawNewChat(inputValue);
+    drawNewChat(`Me: ${inputValue}`);
     event.target.elements[0].value = '';
   }
 };
@@ -50,6 +51,8 @@ function helloUser() {
 
 function init() {
   helloUser();
+  // 이벤트 연결
+  formElement.addEventListener('submit', handleSubmit);
 }
 
 init();
