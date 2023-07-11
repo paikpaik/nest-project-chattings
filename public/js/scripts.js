@@ -8,12 +8,38 @@ const formElement = getElementById('chat_form');
 
 //* global socket handler
 socket.on('user_connected', (username) => {
-  console.log(`${username} connected!`);
+  drawNewChat(`${username} connected!`);
 });
+socket.on('new_chat', (data) => {
+  const { chat, username } = data;
+  drawNewChat(`${username}: ${chat}`);
+});
+
+//* event callback functions
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const inputValue = event.target.elements[0].value;
+  if (inputValue !== '') {
+    socket.emit('submit_chat', inputValue);
+    // 브라우저에 나타내기
+    drawNewChat(inputValue);
+    event.target.elements[0].value = '';
+  }
+};
 
 //* draw functions
 const drawHelloStranger = (username) =>
   (helloStrangerElement.innerText = `Hello ${username} Stranger :)`);
+const drawNewChat = (message) => {
+  const wrapperChatBox = document.createElement('div');
+  const chatBox = `
+      <div>
+        ${message}
+      </div>
+      `;
+  wrapperChatBox.innerHTML = chatBox;
+  chattingBoxElement.append(wrapperChatBox);
+};
 
 function helloUser() {
   const username = prompt('What is your name?');
