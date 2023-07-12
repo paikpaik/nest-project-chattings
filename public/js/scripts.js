@@ -33,6 +33,7 @@ const handleSubmit = (event) => {
 //* draw functions
 const drawHelloStranger = (username) =>
   (helloStrangerElement.innerText = `👻반가워요! ${username}`);
+
 const drawNewSentChat = (message) => {
   const wrapperChatBox = document.createElement('div');
   wrapperChatBox.classList.add('sent-message');
@@ -43,7 +44,10 @@ const drawNewSentChat = (message) => {
       `;
   wrapperChatBox.innerHTML = chatBox;
   chattingBoxElement.append(wrapperChatBox);
+  // 스크롤을 자동으로 내림
+  chattingBoxElement.scrollTop = chattingBoxElement.scrollHeight;
 };
+
 const drawNewReceivedChat = (message) => {
   const wrapperChatBox = document.createElement('div');
   wrapperChatBox.classList.add('received-message');
@@ -54,6 +58,8 @@ const drawNewReceivedChat = (message) => {
   `;
   wrapperChatBox.innerHTML = chatBox;
   chattingBoxElement.append(wrapperChatBox);
+  // 스크롤을 자동으로 내림
+  chattingBoxElement.scrollTop = chattingBoxElement.scrollHeight;
 };
 
 const drawNewChat = (message, isSent) => {
@@ -62,6 +68,8 @@ const drawNewChat = (message, isSent) => {
   } else {
     drawNewReceivedChat(message);
   }
+  // 스크롤을 자동으로 내림
+  chattingBoxElement.scrollTop = chattingBoxElement.scrollHeight;
 };
 
 function helloUser() {
