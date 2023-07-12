@@ -1,3 +1,76 @@
-body {
-  background-color: bisque;
+/* 인사 메시지 스타일 */
+#hello_stranger {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  background-color: #00a9ff;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 채팅 박스 스타일 */
+#chatting_box {
+  background-color: #f2f2f2;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 보낸 채팅 메시지 스타일 */
+.sent-message {
+  background-color: #dcf8c6;
+  color: #333333;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+/* 받은 채팅 메시지 스타일 */
+.received-message {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+/* 폼 스타일 */
+#chat_form {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 입력 필드 스타일 */
+#chat_form input {
+  width: 70%;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+}
+
+/* 전송 버튼 스타일 */
+#chat_form button {
+  padding: 8px 12px;
+  border-radius: 20px;
+  background-color: #00a9ff;
+  color: #ffffff;
+  border: none;
 }
